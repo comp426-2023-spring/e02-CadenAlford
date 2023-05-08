@@ -1,8 +1,97 @@
 body {
-}
-
-h1 {
-}
-
-p {
-}
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  
+  header {
+    background-color: #1a9ae9;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+    color: #000000;
+  }
+  
+  /* Sections */
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  /* Game mode and play mode */
+  select, input[type="radio"], label {
+    margin-right: 1rem;
+  }
+  
+  /* Choices section */
+  #choices-section select {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #1a9ae9;
+    color: #000000;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 195, 255, 0.912);
+    color: #FCFFE7;
+  }
+  
+  /* Results section */
+  #results-section {
+    background-color: #BAD7E9;
+    padding: 1rem;
+    color: #2B3467;
+  }
+  
+  /* Scoreboard */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #2B3467;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #2B3467;
+    color: #BAD7E9;
+  }
+  
+  /* Rules section */
+  a {
+    color: #1a9ae9;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

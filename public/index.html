@@ -1,12 +1,61 @@
-<html>
+<html lang="en">
     <head>
-        <title>Rock</title>
-        <!-- Link to your script file(s) and CSS in here somewhere -->
+        <title>Rock, Paper, Scissors, and More!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css">
+        <script src="./scripts.js" defer></script>
     </head>
     <body>
-
-    <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
-
+        <header>
+            <h1>Rock, Paper, Scissors and More!</h1>
+        </header>
+        <main>
+            <section>
+              <h2>Choose Game Mode:</h2>
+              <select id="game-mode">
+                <option value="rps">Rock, Paper, Scissors</option>
+                <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
+              </select>
+            </section>
+        
+            <section>
+              <h2>Play Mode:</h2>
+              <input type="radio" id="random-draw" name="play-mode" value="random" checked>
+              <label for="random-draw">Random Draw</label><br>
+              <input type="radio" id="play-opponent" name="play-mode" value="opponent">
+              <label for="play-opponent">Play Opponent</label>
+            </section>
+        
+            <section id="choices-section">
+                <h2>Your Choice:</h2>
+                <input type="radio" id="rock" name="choice" value="rock" checked>
+                <label for="rock"><img src="./img/rock.jpg" alt="Rock" width="50px" height="50px"></label>
+                <input type="radio" id="paper" name="choice" value="paper">
+                <label for="paper"><img src="./img/paper.jpg" alt="Paper" width="50px" height="50px"></label>
+                <input type="radio" id="scissors" name="choice" value="scissors">
+                <label for="scissors"><img src="./img/scissors.jpg" alt="Scissors" width="50px" height="50px"></label>
+                <input type="radio" id="lizard" name="choice" value="lizard" style="display: none;">
+                <label for="lizard" style="display: none;"><img src="./img/lizard.jpg" alt="Lizard" width="50px" height="50px"></label>
+                <input type="radio" id="spock" name="choice" value="spock" style="display: none;">
+                <label for="spock" style="display: none;"><img src="./img/spock.jpg" alt="Spock" width="50px" height="50px"></label>
+            </section>
+        
+            <section>
+              <button id="play-button">Play</button>
+              <button id="reset-button">Reset</button>
+            </section>
+        
+            <section id="results-section" style="display: none;">
+              <h2>Results:</h2>
+              <p id="result-text"></p>
+            </section>
+        
+            <section>
+              <h2>Rules:</h2>
+              <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" target="_blank">Rock, Paper, Scissors Rules</a><br>
+              <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" target="_blank">Rock, Paper, Scissors, Lizard, Spock Rules</a>
+            </section>
+          </main>
     </body>
 </html>
