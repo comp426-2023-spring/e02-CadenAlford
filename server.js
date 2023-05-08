@@ -1,4 +1,8 @@
 //// Load most basic dependencies
+
+import dotenv from 'dotenv';
+dotenv.config();
+
 // Create require function 
 // https://nodejs.org/docs/latest-v18.x/api/module.html#modulecreaterequirefilename
 import { createRequire } from 'node:module';
@@ -60,7 +64,7 @@ if (args.debug) {
 // Create an app server
 const app = express()
 // Set a port for the server to listen on
-const port = args.port || args.p || process.env.PORT || 8080
+const port = process.env.PORT || args.port || args.p || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
 //
 // Create and update access log
@@ -71,8 +75,74 @@ app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:htt
 // Serve static files
 const staticpath = args.stat || args.s || process.env.STATICPATH || path.join(__dirname, 'public')
 app.use('/', express.static(staticpath))
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//----------------------Endpoints----------------------------
+
+import { rps, rpsls } from './lib/rpsls.js';
+
+//Check endpoint at /app/ that returns 200 OK
+app.get("/app/", (req, res) => {
+    res.status(200).send("200 OK");
+});
+
+app.get("/bob/", (req, res) => {
+    res.status(200).send("bob 200 OK");
+});
+
+//Endpoint /app/rps/ that returns {"player":"(rock|paper|scissors)"}
+app.get("/app/rps/", (req, res) => {
+    res.status(200).send(JSON.stringify(rps()));
+});
+
+//Endpoint /app/rpsls/ that returns {"player":"(rock|paper|scissors|lizard|spock)"}
+app.get("/app/rpsls/", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls()));
+});
+
+////Endpoint /app/rps/play/ should accept request bodies in the following form: shot=(rock|paper|scissors) (URLEncoded)
+app.get("/app/rps/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.query.shot)));
+});
+
+//Endpoint /app/rps/play/ should accept request bodies in the following form: {"shot":"(rock|paper|scissors)"} (JSON)
+app.post("/app/rps/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.body.shot)));
+});
+
+//Endpoint /app/rpsls/play/ should accept request bodies in the following form: shot=(rock|paper|scissors|lizard|spock) (URLEncoded)
+app.get("/app/rpsls/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls(req.query.shot)));
+});
+
+//Endpoint /app/rpsls/play/ should accept request bodies in the following form: {"shot":"(rock|paper|scissors|lizard|spock)"} (JSON)
+app.post("/app/rpsls/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls(req.body.shot)));
+});
+
+//Endpoint /app/rps/play/(rock|paper|scissors)/
+app.get("/app/rps/play/:shot", (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.params.shot)));
+});
+
+//Endpoint /app/rpsls/play/(rock|paper|scissors|lizard|spock)/
+app.get("/app/rpsls/play/:shot", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls(req.params.shot)));
+});
+
+//Default API endpoint that returns 404 NOT FOUND for any endpoints that are not defined
+app.get("*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+});
+
+//------------------------------------------
+
 // Create app listener
-const server = app.listen(port)
+const server = app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
+});
 // Create a log entry on start
 let startlog = new Date().toISOString() + ' HTTP server started on port ' + port + '\n'
 // Debug echo start log entry to STDOUT
