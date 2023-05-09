@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -11,6 +11,7 @@ body {
     color: #ffffff;
     text-align: center;
     padding: 1rem;
+    text-shadow: -3px 2px 0 #000
   }
   
   h1 {
@@ -20,30 +21,28 @@ body {
   main {
     padding: 2rem;
   }
-  
+
   h2 {
     margin-bottom: .2rem;
     color: #000000;
   }
   
-  /* Sections */
   section {
     margin-bottom: 2rem;
   }
   
-  /* Game mode and play mode */
+  /* Game/Play Mode */
   select, input[type="radio"], label {
     margin-right: 1rem;
   }
   
-  /* Choices section */
   #choices-section select {
     display: block;
     width: 100%;
     margin-top: 0.5rem;
   }
   
-  /* Buttons */
+ 
   button {
     background-color: #1a9ae9;
     color: #000000;
@@ -59,7 +58,7 @@ body {
     color: #FCFFE7;
   }
   
-  /* Results section */
+  
   #results-section {
     background-color: #BAD7E9;
     padding: 1rem;
@@ -88,10 +87,29 @@ body {
   
   /* Rules section */
   a {
-    color: #1a9ae9;
+    color: #000000;
     text-decoration: none;
+  }
+  .rules{
+    color: #ffffff;
   }
   
   a:hover {
     text-decoration: underline;
+  }
+  .column{
+    float: left;
+    width: 10%;
+    padding: 5px;
+  }
+  .row::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+  footer{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #1a9ae9;
+    padding: 1rem;
+    text-align: center;
   }

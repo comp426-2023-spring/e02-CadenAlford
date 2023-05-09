@@ -12,7 +12,7 @@
         </header>
         <main>
             <section>
-              <h2>Choose Game Mode:</h2>
+              <h2>Game Mode:</h2>
               <select id="game-mode">
                 <option value="rps">Rock, Paper, Scissors</option>
                 <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
@@ -27,16 +27,28 @@
             </section>
             <section id="choices-section">
                 <h2>Your Choice:</h2>
+                <div class="row">
+                  <div class = "column">
                 <input type="radio" id="rock" name="choice" value="rock" checked>
-                <label for="rock"><img src="./img/rock.jpg" alt="Rock" width="50px" height="50px"></label>
+                <label for="rock"><figure><img src="./img/rock.jpg" alt="Rock" width="50px" height="50px"><figcaption>Rock</figcaption></figure></label>
+              </div>
+              <div class = "column">
                 <input type="radio" id="paper" name="choice" value="paper">
-                <label for="paper"><img src="./img/paper.jpg" alt="Paper" width="50px" height="50px"></label>
+                <label for="paper"><figure><img src="./img/paper.jpg" alt="Paper" width="50px" height="50px"><figcaption>Paper</figcaption></figure></label>
+              </div>
+              <div class = "column">
                 <input type="radio" id="scissors" name="choice" value="scissors">
-                <label for="scissors"><img src="./img/scissors.jpg" alt="Scissors" width="50px" height="50px"></label>
+                <label for="scissors"><figure><img src="./img/scissors.jpg" alt="Scissors" width="50px" height="50px"><figcaption>Scissors</figcaption></figure></label>
+              </div>
+              <div class = "column">
                 <input type="radio" id="lizard" name="choice" value="lizard" style="display: none;">
-                <label for="lizard" style="display: none;"><img src="./img/lizard.jpg" alt="Lizard" width="50px" height="50px"></label>
+                <label for="lizard" style="display: none;"><figure><img src="./img/lizard.jpg" alt="Lizard" width="50px" height="50px"><figcaption>Lizard</figcaption></figure></label>
+              </div>
+              <div class = "column">
                 <input type="radio" id="spock" name="choice" value="spock" style="display: none;">
-                <label for="spock" style="display: none;"><img src="./img/spock.jpg" alt="Spock" width="50px" height="50px"></label>
+                <label for="spock" style="display: none;"><figure><img src="./img/spock.jpg" alt="Spock" width="50px" height="50px"><figcaption>Spock</figcaption></figure></label>
+              </div>
+              </div>
             </section>
             <section>
               <button id="play-button" type="button">Play</button>
@@ -46,11 +58,11 @@
               <h2>Results:</h2>
               <p id="result-text"></p>
             </section>
-            <section>
-              <h2>Rules:</h2>
-              <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" target="_blank">Rock, Paper, Scissors Rules</a><br>
-              <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" target="_blank">Rock, Paper, Scissors, Lizard, Spock Rules</a>
-            </section>
           </main>
+          <footer>
+            <h2 id="rules">Rules:</h2>
+            <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" target="_blank">Rock, Paper, Scissors Rules</a><br>
+            <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" target="_blank">Rock, Paper, Scissors, Lizard, Spock Rules</a>
+        </footer>
     </body>
 </html>
