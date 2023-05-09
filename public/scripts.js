@@ -114,7 +114,7 @@ function displayResult(result) {
   resultsSection.style.display = "block";
 
   if (playMode === "opponent") {
-    resultText.textContent = `You played: ${result.player.toUpperCase()}. Opponent played: ${result.opponent.toUpperCase()}. Result: ${result.result.toUpperCase()}.`;
+    resultText.textContent = `You played: ${result.player.toUpperCase()}. Your xOpponent played: ${result.opponent.toUpperCase()}. Result: ${result.result.toUpperCase()}.`;
   } else {
     resultText.textContent = `Random draw: ${result.player.toUpperCase()}.`;
   }
