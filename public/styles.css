@@ -99,7 +99,7 @@ body {
   }
   .column{
     float: left;
-    width: 10%;
+    width: 25%;
     padding: 5px;
   }
   .row::after{
